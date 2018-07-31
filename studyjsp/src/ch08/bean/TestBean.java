@@ -2,6 +2,7 @@ package ch08.bean;
 
 public class TestBean {
 	private String id;
+	private String name;
 
 	public String getId() {
 		return id;
