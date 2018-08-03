@@ -39,7 +39,8 @@ public class JoinController extends HttpServlet {
 		user.setTel(tel);
 		user.setAddr(addr);
 		
-		
+		System.out.println("name");
+		System.out.println("addr");
 		//System.out.println(user);
 		UserDao dao = new UserDao();
 		if (dao.addUser(user)) {	// 사용자 추가 성공

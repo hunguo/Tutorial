@@ -77,7 +77,7 @@ public class UserDao {
 		ResultSet rs = null;
 		
 		if (conn != null) {
-			String sql = "select id, pw, name from plan_member where id=?";
+			String sql = "select id, pw, name from USERMEMBER where id=?";
 			try {
 				PasswordAuthentication passAuth = new PasswordAuthentication();
 				
@@ -142,7 +142,7 @@ public class UserDao {
 		ResultSet rs = null;
 		
 		if (conn != null) {
-			String sql = "select * from plan_member where id=?";
+			String sql = "select * from USERMEMBER where id=?";
 			try {
 				ps = conn.prepareStatement(sql);
 				ps.setString(1, id);
@@ -195,7 +195,7 @@ public class UserDao {
 		ResultSet rs = null;
 		
 		if (conn != null && user != null) {
-			String sql =  "select * from plan_member where id=?";
+			String sql =  "select * from USERMEMBER where id=?";
 			try {
 				ps = conn.prepareStatement(sql);
 				ps.setString(1, user.getId());

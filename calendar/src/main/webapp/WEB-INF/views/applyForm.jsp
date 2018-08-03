@@ -16,11 +16,11 @@
 				
 				<tr>
 					<td>할일:</td>
-					<td><input type="text" name="PLAN"></td>
+					<td><input type="text" name="PLAN" id="PLAN"></td>
 				</tr>
 				<tr>
 					<td>날짜및 장소:</td>
-					<td><input type="text" name="PLANDESC"></td>
+					<td><input type="text" name="PLANDESC" id="PLANDESC"></td>
 				</tr>
 				<tr>
 				</tr>

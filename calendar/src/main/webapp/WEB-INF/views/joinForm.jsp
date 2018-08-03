@@ -4,7 +4,7 @@
 <jsp:include page="/WEB-INF/views/header.jsp" flush="false" />
 
 <div class="container">
-<h1>Plan Manager</h1>
+<h1>일정관리</h1>
 	<div>
 		<h3>회원 가입 </h3>
 
@@ -18,7 +18,7 @@
 					${msg }
 					<td>ID:</td>
 					<td><input type="text" name="id" value=${param.id }></td>
-			    <td><input type="submit" value="중복체크" id="idcheck">	 
+			  <td><!--<input type="submit" value="중복체크" id="idcheck">	 -->
 					</td>
 				</tr>
 				<tr>

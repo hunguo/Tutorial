@@ -27,25 +27,26 @@ public class LoginController extends HttpServlet{
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String orgPath = request.getParameter("orgReqPath");
-		
 		//System.out.println("orgPath: " + orgPath);
-		UserDao dao = new UserDao();
-		
-		User user = dao.authenticateUser(id, pw);
-		// 인증
-		if (user != null) {	// 인증 성공
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			if (orgPath.length() == 0) {
-				response.sendRedirect(request.getContextPath() + "/");
-			} else {
-				response.sendRedirect(orgPath);
-			}
-			
-		} else {
-			request.setAttribute("error", "주어진 정보가 맞지않습니다.");
-			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+				UserDao dao = new UserDao();
+				
+				User user = dao.authenticateUser(id, pw);
+				// 인증
+				if (user != null) {	// 인증 성공
+					HttpSession session = request.getSession();
+					session.setAttribute("user", user);
+					if (orgPath.length() == 0) {
+						response.sendRedirect(request.getContextPath() + "/");
+					} else {
+						response.sendRedirect(orgPath);
+					}
+					
+				} else {
+					request.setAttribute("error", "주어진 정보가 맞지않습니다.");
+					request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+				}
+				
 		}
-		
-	}
 }
+
+

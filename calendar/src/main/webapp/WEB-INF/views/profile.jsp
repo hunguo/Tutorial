@@ -10,6 +10,7 @@
 				${name } Profile
 				
 			</h3>
+			<hr>
 			
 		</div>
 	</div>

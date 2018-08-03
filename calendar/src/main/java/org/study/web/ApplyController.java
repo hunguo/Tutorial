@@ -21,20 +21,7 @@ public class ApplyController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 		throws IOException, ServletException {
-		
-//		HttpSession session = request.getSession();
-//		User user = (User) session.getAttribute("user");
-		
-		/*if (user != null) {
-			request.setAttribute("name", user.getName());
-			request.getRequestDispatcher("/WEB-INF/views/applyForm.jsp").forward(request, response);
-		} else {
-			request.setAttribute("error", "먼저 로그인 하세요");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}*/
-		
 		request.getRequestDispatcher("/WEB-INF/views/applyForm.jsp").forward(request, response);
-		
 	}
 	
 	@Override
@@ -42,19 +29,23 @@ public class ApplyController extends HttpServlet {
 		throws IOException, ServletException {
 		String PLAN = request.getParameter("PLAN");
 		String PLANDESC = request.getParameter("PLANDESC");
-		
+
+				
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		Application application = new Application(user.getId());
+
+		
+		application.setPLAN(PLAN);
+		application.setPLANDESC(PLANDESC);
+		
 		
 		//System.out.println(application);
 		
 		ApplyDao dao = new ApplyDao();
-		if (dao.submitApplication(application)) {
+		int result = dao.submitApplication(application);
+		if (result == 1) {
 			response.sendRedirect(request.getContextPath() + "/profile?msg=success");
-		} else {
-			request.setAttribute("error", "일정 작성에 실패하셨습니다");
-			request.getRequestDispatcher("WEB-INF/views/applyForm.jsp").forward(request, response);
-		}
+		} 
 	}
 }
